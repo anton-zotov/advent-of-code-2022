@@ -1,12 +1,11 @@
 import { DayResults } from '../day-result';
+import { sum } from '../utils/math';
 import * as input from './input.json';
 
 const elves = (input as any).default;
 
-const sum = (arr: number[]) => arr.reduce((acc, cur) => acc + cur, 0);
-
 function mostCaloriesCarried(elves: number[][], top: number): number {
-    let mostCalories = [...'0'.repeat(top)].map(c => +c);
+    let mostCalories = [...'0'.repeat(top)].map((c) => +c);
     for (const elf of elves) {
         const currentCalories = sum(elf);
         if (currentCalories > mostCalories[0]) {
